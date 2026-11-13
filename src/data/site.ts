@@ -10,22 +10,28 @@ export const person = {
   updated: 'November 2026',
 };
 
-export const ausbildung = [
+export const werdegang = [
   {
-    zeitraum: 'seit 2025',
+    zeitraum: 'seit September 2025',
     titel: 'Ausbildung zum Fachinformatiker für Anwendungsentwicklung',
     ort: 'Agenda Software',
     punkte: [
-      'Duales System: Betrieb und Berufsschule im Blockunterricht',
-      'Schwerpunkte: Web-Anwendungen, Datenbanken, KI-Integration',
-      'Eigenverantwortliche Umsetzung mehrerer Anwendungen von der Datenbank bis zum Betrieb',
+      'Mitarbeit an betrieblicher Softwareentwicklung im Team',
+      'Schwerpunkte: Web-Anwendungen, Datenbanken, KI-Anbindung',
+      'Eigene Anwendungen von der Datenbank bis zum laufenden Betrieb',
     ],
   },
   {
-    zeitraum: '2025 – 2027',
-    titel: 'Berufsschule BS1 Traunstein, Klasse IT11b',
-    ort: 'Blockunterricht',
-    punkte: ['Abschlussprüfung Teil 1 im Februar 2027'],
+    zeitraum: 'September 2023 – August 2025',
+    titel: 'Werkstudent in IT-nahen Aufgaben',
+    ort: 'ROFA Industrial Automation',
+    punkte: ['Unterstützung im Tagesgeschäft parallel zum Studium'],
+  },
+  {
+    zeitraum: '2022 – 2025',
+    titel: 'Studium Informatik',
+    ort: 'Technische Hochschule Rosenheim',
+    punkte: ['Grundlagen in Programmierung, Datenbanken und Softwaretechnik'],
   },
 ];
 
@@ -39,5 +45,6 @@ export const kenntnisse = [
 
 export const sprachen = [
   { name: 'Deutsch', niveau: 'Muttersprache' },
-  { name: 'Englisch', niveau: 'gute Lesekenntnisse, technische Dokumentation' },
+  { name: 'Englisch', niveau: 'technische Dokumentation, gute Lesekenntnisse' },
+  { name: 'Französisch', niveau: 'Grundkenntnisse aus der Schule' },
 ];

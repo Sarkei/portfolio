@@ -42,7 +42,7 @@ export const projects: Project[] = [
     problem:
       'Wer für mehrere Personen kocht, sammelt Rezepte in Chats, Zetteln und Screenshots. Diese App bündelt Sammlung, Planung und Einkauf an einer Stelle — inklusive Allergien, Küchenvorlieben und Zeitbudget.',
     features: [
-      'Über 900 Rezepte in einer gemeinsamen, durchsuchbaren Sammlung mit Bewertungen, Favoriten und Kommentaren',
+      'Eigene Rezeptsammlung mit Suche, Bewertungen, Favoriten und Kommentaren je Haushalt',
       'Wochenplan per Drag & Drop, auf Wunsch komplett von der KI erzeugt — nach Ernährungsform, Allergien und Küchengeräten aller Haushaltsmitglieder',
       'Einkaufsliste, die aus dem Plan abgeleitet und nach Zutaten gruppiert wird; Mengen werden über Einheiten hinweg korrekt summiert',
       'Echtzeit-Synchronisation zwischen allen Geräten eines Haushalts über Server-Sent Events',
@@ -50,12 +50,12 @@ export const projects: Project[] = [
     ],
     stack: ['React 19', 'TypeScript', 'Tailwind 4', 'Express', 'PostgreSQL', 'DeepSeek API', 'Docker'],
     highlights: [
-      { label: 'Rezepte', value: '912' },
+      { label: 'Bereiche', value: '6' },
       { label: 'Rollen', value: '3' },
       { label: 'Live seit', value: '2026' },
     ],
     shots: { desktop: '/shots/meal-desktop.webp', mobile: '/shots/meal-mobile.webp' },
-    demo: 'https://meal-planner.nas-timgreen.com/?demo=1',
+    demo: 'https://demo-mealplanner.nas-timgreen.com/',
     repo: 'https://github.com/Sarkei/meal-planner',
     coverIcon: 'calendar',
   },
@@ -86,7 +86,7 @@ export const projects: Project[] = [
       { label: 'Kameras', value: '1–2' },
     ],
     shots: { desktop: '/shots/darts-desktop.webp', mobile: '/shots/darts-mobile.webp' },
-    demo: 'https://darts.nas-timgreen.com/?demo=1',
+    demo: 'https://demo-darts.nas-timgreen.com/',
     repo: 'https://github.com/Sarkei/darts-tracker',
     coverIcon: 'target',
   },
@@ -115,7 +115,7 @@ export const projects: Project[] = [
       { label: 'Rollen', value: 'Nutzer / Admin' },
     ],
     shots: { desktop: '/shots/mitfahr-desktop.webp', mobile: '/shots/mitfahr-mobile.webp' },
-    demo: 'https://tankpreis-rechner.nas-timgreen.com/?demo=1',
+    demo: 'https://demo-mitfahr.nas-timgreen.com/',
     repo: 'https://github.com/Sarkei/tankpreis-rechner',
     coverIcon: 'car',
   },
@@ -145,7 +145,7 @@ export const projects: Project[] = [
       { label: 'Suche', value: 'Volltext' },
     ],
     shots: { desktop: '/shots/edu-desktop.webp', mobile: '/shots/edu-mobile.webp' },
-    demo: 'https://education-planner.nas-timgreen.com/?demo=1',
+    demo: 'https://demo-education.nas-timgreen.com/',
     repo: 'https://github.com/Sarkei/education-planner',
     coverIcon: 'folder',
   },
@@ -156,7 +156,7 @@ export const projects: Project[] = [
     category: 'web',
     ai: true,
     year: '2025',
-    status: 'intern',
+    status: 'live',
     summary:
       'Aus wenigen Angaben — Thema, Zielgruppe, Dauer — entsteht ein vollständiges pädagogisches Angebot mit Materialliste, Zielen, Vorbereitung und Schritten, optional zweisprachig und illustriert.',
     problem:
@@ -174,6 +174,8 @@ export const projects: Project[] = [
       { label: 'Sprachen', value: 'DE / EN' },
     ],
     repo: 'https://github.com/Sarkei/kita-planner',
+    shots: { desktop: '/shots/kita-desktop.webp', mobile: '/shots/kita-mobile.webp' },
+    demo: 'https://demo-kita.nas-timgreen.com/',
     coverIcon: 'sparkles',
   },
   {
@@ -183,7 +185,7 @@ export const projects: Project[] = [
     category: 'web',
     ai: true,
     year: '2026',
-    status: 'intern',
+    status: 'live',
     summary:
       'Trainings- und Ernährungs-App: Sätze werden live protokolliert, Mahlzeiten per Text, Foto oder Barcode erfasst, und ein KI-Coach leitet daraus Wochenpläne und Fortschrittsberichte ab.',
     problem:
@@ -202,6 +204,8 @@ export const projects: Project[] = [
       { label: 'Export', value: 'JSON/CSV' },
     ],
     repo: 'https://github.com/Sarkei/fitness-tracker',
+    shots: { desktop: '/shots/fitness-desktop.webp', mobile: '/shots/fitness-mobile.webp' },
+    demo: 'https://demo-fitness.nas-timgreen.com/',
     coverIcon: 'dumbbell',
   },
   {
@@ -210,7 +214,7 @@ export const projects: Project[] = [
     subtitle: 'Private Finanzen, sauber getrennt',
     category: 'web',
     year: '2026',
-    status: 'intern',
+    status: 'live',
     summary:
       'Blazor-Server-Anwendung für mehrere Konten, Daueraufträge, geplante Zahlungen, Spartöpfe und gemeinsame Ausgaben — mit echter SQLite-Datei im eigenen Container.',
     problem:
@@ -229,6 +233,8 @@ export const projects: Project[] = [
       { label: 'Betrieb', value: 'self-hosted' },
     ],
     repo: 'https://github.com/Sarkei/budget-tracker',
+    shots: { desktop: '/shots/budget-desktop.webp', mobile: '/shots/budget-mobile.webp' },
+    demo: 'https://demo-budget.nas-timgreen.com/',
     coverIcon: 'wallet',
   },
   {
@@ -255,6 +261,7 @@ export const projects: Project[] = [
       { label: 'Engine', value: 'geteilt' },
     ],
     repo: 'https://github.com/Sarkei/space-invaders',
+    shots: { desktop: '/shots/space-desktop.webp' },
     coverIcon: 'gamepad',
   },
   {
@@ -283,6 +290,7 @@ export const projects: Project[] = [
       { label: 'Risiko', value: 'Stop −2,2 %' },
     ],
     repo: 'https://github.com/Sarkei/freqtrade-ki-bot',
+    shots: { desktop: '/shots/bot-desktop.webp' },
     coverIcon: 'bot',
   },
 ];

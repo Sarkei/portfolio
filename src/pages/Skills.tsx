@@ -122,11 +122,11 @@ export function Skills() {
       <section className="mx-auto mt-14 max-w-6xl px-5">
         <div className="reveal rounded-2xl border border-line bg-surface p-6">
           <h2 className="font-serif text-2xl">Sprachen</h2>
-          <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+          <dl className="mt-4 divide-y divide-line/70 border-t border-line/70">
             {sprachen.map((s) => (
-              <div key={s.name} className="flex items-baseline justify-between gap-3 border-b border-line/60 pb-2">
-                <dt className="text-[14.5px]">{s.name}</dt>
-                <dd className="text-right text-[12.5px] text-muted">{s.niveau}</dd>
+              <div key={s.name} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3">
+                <dt className="text-[15px]">{s.name}</dt>
+                <dd className="text-[13px] text-muted">{s.niveau}</dd>
               </div>
             ))}
           </dl>

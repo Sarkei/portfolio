@@ -1,31 +1,31 @@
 import { ArrowRight, Database, GitBranch, Sparkles } from 'lucide-react';
 import { PageHeader } from '../components/PageHeader';
-import { ausbildung, person } from '../data/site';
+import { person, werdegang } from '../data/site';
 
-const facts = [
+const steckbrief = [
   { label: 'Ausbildung', value: 'Fachinformatiker für Anwendungsentwicklung' },
-  { label: 'Ausbildungsjahr', value: '2. Jahr, seit 2025' },
-  { label: 'Betrieb', value: 'Agenda Software' },
-  { label: 'Berufsschule', value: 'BS1 Traunstein, Klasse IT11b' },
-  { label: 'Schwerpunkt', value: 'Web-Anwendungen, KI-Integration, self-hosted Betrieb' },
+  { label: 'Im Betrieb seit', value: 'September 2025' },
+  { label: 'Ausbildungsbetrieb', value: 'Agenda Software' },
+  { label: 'Davor', value: 'Studium Informatik, TH Rosenheim' },
+  { label: 'Schwerpunkt', value: 'Web-Anwendungen, KI-Anbindung, eigener Serverbetrieb' },
   { label: 'Standort', value: person.location },
 ];
 
-const werte = [
+const grundsaetze = [
   {
     icon: Database,
-    title: 'Vollständig statt angefangen',
-    text: 'Eine Anwendung ist für mich erst fertig, wenn sie Datenbank, Anmeldung, Rechte und Datensicherung hat. Die halbe Strecke bringt niemandem etwas.',
+    title: 'Der Unterbau entscheidet',
+    text: 'Bevor ich eine Oberfläche baue, steht das Datenmodell. Wer Tabellen, Rechte und Zustände sauber hat, merkt beim Erweitern später kaum etwas davon.',
   },
   {
     icon: GitBranch,
-    title: 'Nachvollziehbar',
-    text: 'Jede Änderung liegt im Repo, jede Entscheidung steht in der README. Wer ein Projekt übernimmt, soll es ohne Rückfrage verstehen können.',
+    title: 'Verstehbar für andere',
+    text: 'Code, den nur ich lesen kann, ist ein Risiko. Ich schreibe kurze Commits und eine README, die den Betrieb erklärt — damit jemand übernehmen kann, ohne mich fragen zu müssen.',
   },
   {
     icon: Sparkles,
-    title: 'KI dort, wo sie hilft',
-    text: 'Sprachmodelle übernehmen Planung, Texte und Auswertungen — aber jeder Vorschlag wird gegen ein festes Schema geprüft, bevor er gespeichert wird.',
+    title: 'KI mit Kontrolle',
+    text: 'Sprachmodelle sind für mich ein Werkzeug wie ein Compiler: nützlich, aber nicht blind vertraut. Was zurückkommt, wird gegen ein festes Format geprüft, bevor es gespeichert wird.',
   },
 ];
 
@@ -34,36 +34,41 @@ export function About() {
     <main className="pb-20">
       <PageHeader
         label="Über mich"
-        title="Auszubildender, der abends weiterbaut"
-        intro="Ich lerne Anwendungsentwicklung — und baue dieselben Dinge, die ich in Betrieb und Berufsschule höre, noch einmal selbst: von der Datenbank bis zum laufenden Server."
+        title="Ich baue am liebsten Dinge, die jemand wirklich braucht"
+        intro="Anwendungsentwicklung ist für mich kein Selbstzweck. Der Moment, in dem jemand ein Werkzeug von mir benutzt und es dadurch einfacher hat — dafür baue ich."
       />
 
       <section className="mx-auto max-w-6xl px-5 pt-8">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-start">
           <div className="reveal space-y-5 text-[16.5px] leading-relaxed">
             <p>
-              Ich bin Tim, 2025 in die Ausbildung zum Fachinformatiker für Anwendungsentwicklung
-              gestartet und aktuell im zweiten Ausbildungsjahr. Im Betrieb arbeite ich an
-              Softwareprojekten mit, in der Berufsschule läuft der Blockunterricht an der BS1
-              Traunstein — und der Teil, der mich am meisten interessiert, ist der ganze Weg einer
-              Anwendung: Datenmodell, API, Oberfläche und der Betrieb danach.
+              Vor meiner Ausbildung habe ich Informatik an der TH Rosenheim studiert — und dabei
+              gemerkt, dass mich weniger die Theorie packt als der Moment, in dem etwas fertig ist
+              und läuft. Seit September 2025 bin ich deshalb in der Ausbildung zum
+              Fachinformatiker für Anwendungsentwicklung bei Agenda Software.
             </p>
             <p>
-              Deshalb entstehen meine eigenen Projekte nicht als Übungsaufgaben mit Beispieldaten,
-              sondern als Werkzeuge, die ich selbst und mein Umfeld benutzen: Essensplanung,
-              Darts-Abende, Fahrgemeinschaften, Schulunterlagen. Jede dieser Anwendungen läuft in
-              Docker auf einem eigenen Server, mit Datenbank, Anmeldung und Backup.
+              Meine eigenen Projekte entstehen aus dem Alltag: eine Essensplanung, weil die
+              Wocheneinkäufe ständig im Kopf entschieden wurden; eine Darts-Auswertung, weil ein
+              Zettel dafür nicht reicht; eine Fahrgemeinschafts-App, weil Absprachen im Chat
+              verloren gehen. Aus jedem dieser kleinen Probleme wurde eine Anwendung mit Datenbank,
+              Anmeldung und eigenem Server.
             </p>
             <p>
-              Ich bin am Anfang meiner Laufbahn und nutze jedes Projekt, um ein Stück tiefer zu
-              gehen: Rechtekonzepte, Migrationen, Deployment, Fehlersuche im Betrieb. Was ich in der
-              Ausbildung lerne, probiere ich abends an einer eigenen Anwendung aus — und was dort
-              funktioniert, kommt zurück in den nächsten Aufbau.
+              Dabei interessiert mich vor allem das Drumherum, das in Tutorials selten vorkommt:
+              Wie kommen Änderungen in die Datenbank, ohne dass etwas kaputtgeht? Wer darf was
+              sehen? Was passiert nachts um drei, wenn ein Container neu startet? Diese Fragen
+              entscheiden über den Unterschied zwischen einer Demo und etwas, das täglich benutzt
+              wird.
+            </p>
+            <p>
+              Ich stehe damit am Anfang und nutze jede Gelegenheit, ein Stück weiterzukommen: ein
+              neues Muster ausprobieren, einen Fehler bis zur Ursache verfolgen, eine Entscheidung
+              im Nachhinein hinterfragen. Was ich lerne, landet direkt im nächsten Projekt.
             </p>
             <p className="rounded-2xl border border-line bg-surface px-5 py-4 text-[15px] text-muted">
-              Was mich dabei am meisten reizt: Probleme, bei denen am Anfang nur ein Satz steht
-              („wir planen die Woche noch auf Papier") und am Ende eine Anwendung, die wirklich
-              benutzt wird.
+              Am meisten reizt mich die Aufgabe, bei der am Anfang nur ein Satz steht — und am Ende
+              eine Anwendung, die jemand freiwillig jeden Tag öffnet.
             </p>
           </div>
 
@@ -82,7 +87,7 @@ export function About() {
               </div>
             </div>
             <dl className="mt-6 grid gap-px overflow-hidden rounded-xl border border-line bg-line">
-              {facts.map((f) => (
+              {steckbrief.map((f) => (
                 <div key={f.label} className="bg-surface px-3.5 py-2.5">
                   <dt className="text-[10.5px] uppercase tracking-[0.13em] text-muted">{f.label}</dt>
                   <dd className="mt-0.5 text-[13.5px]">{f.value}</dd>
@@ -100,9 +105,12 @@ export function About() {
       </section>
 
       <section className="mx-auto mt-16 max-w-6xl px-5">
-        <h2 className="reveal font-serif text-3xl">Woran ich mich messe</h2>
+        <h2 className="reveal font-serif text-3xl">Was mir wichtig ist</h2>
+        <p className="reveal mt-2 max-w-2xl text-muted">
+          Drei Sätze dazu, wie ich an ein Projekt herangehe — unabhängig davon, wie groß es ist.
+        </p>
         <div className="mt-7 grid gap-4 md:grid-cols-3">
-          {werte.map((w) => (
+          {grundsaetze.map((w) => (
             <div key={w.title} className="reveal rounded-2xl border border-line bg-surface p-5">
               <w.icon size={19} className="text-accent" />
               <h3 className="mt-3 text-[15px] font-medium">{w.title}</h3>
@@ -113,9 +121,9 @@ export function About() {
       </section>
 
       <section className="mx-auto mt-16 max-w-6xl px-5">
-        <h2 className="reveal font-serif text-3xl">Werdegang</h2>
+        <h2 className="reveal font-serif text-3xl">Mein Weg hierher</h2>
         <ol className="mt-7 space-y-6 border-l border-line pl-6">
-          {ausbildung.map((a) => (
+          {werdegang.map((a) => (
             <li key={a.titel} className="reveal relative">
               <span className="absolute -left-[1.72rem] top-1.5 h-2 w-2 rounded-full bg-accent ring-4 ring-paper" />
               <p className="text-[11px] uppercase tracking-[0.14em] text-muted">{a.zeitraum}</p>

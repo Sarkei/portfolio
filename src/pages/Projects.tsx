@@ -52,9 +52,9 @@ export function Projects({ onOpenProject }: { onOpenProject: (id: string) => voi
       </div>
 
       <p className="mt-10 rounded-2xl border border-line bg-surface px-5 py-4 text-sm text-muted">
-        Drei dieser Anwendungen sind nicht öffentlich erreichbar: Sie laufen intern auf dem eigenen
-        Server und sind nur für den jeweiligen Nutzerkreis freigeschaltet. Bilder und Beschreibungen
-        zeigen den echten Stand.
+        Sieben Anwendungen lassen sich direkt als Demo öffnen — ohne Registrierung, mit Beispieldaten
+        und eigenem Demo-Zugang. Zwei Projekte laufen nur intern (Spiel und Bot); dort zeigen Bilder und
+        Beschreibungen den echten Stand.
       </p>
     </main>
   );
