@@ -157,7 +157,7 @@ export default function App() {
         {route === '/datenschutz' && <Datenschutz onBack={() => goTo({ label: 'Start', section: 'start' })} />}
         {route === '/' && <Home onOpenProject={openProject} />}
 
-        <footer className="border-t border-line bg-surface/60">
+        <footer className="border-t border-line bg-surface-2">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <p>© {new Date().getFullYear()} Tim Nagraszus</p>

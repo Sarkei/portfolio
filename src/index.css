@@ -33,12 +33,13 @@
 }
 
 [data-theme='dark'] {
-  --paper: #0e1512;
+  /* Hintergrund: zwei neutrale Grautöne, Karten bleiben dunkelgrün */
+  --paper: #101312;
   --surface: #16211c;
-  --surface-2: #1b2822;
-  --ink: #e9efea;
-  --muted: #9dafa4;
-  --line: #2a332e;
+  --surface-2: #1b1e1d;
+  --ink: #e9edeb;
+  --muted: #a4aaa7;
+  --line: #2b2f2d;
   --accent: #4fbf8b;
   --accent-soft: rgb(79 191 139 / 0.14);
   --accent-ink: #b9e8d0;

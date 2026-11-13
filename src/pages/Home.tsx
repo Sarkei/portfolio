@@ -91,7 +91,7 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
       </section>
 
       {/* Übersicht: die fünf Bereiche */}
-      <section className="border-t border-line bg-surface/60">
+      <section className="border-t border-line bg-surface-2">
         <div className="mx-auto max-w-6xl px-5 py-16">
           <div className="reveal flex flex-wrap items-end justify-between gap-3">
             <h2 className="font-serif text-3xl sm:text-4xl">Alles auf einen Blick</h2>
