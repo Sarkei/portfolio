@@ -164,6 +164,7 @@ export const projects: Project[] = [
       { label: 'Export', value: 'PDF' },
       { label: 'Sprachen', value: 'DE / EN' },
     ],
+    repo: 'https://github.com/Sarkei/kita-planner',
     coverIcon: 'sparkles',
   },
   {
@@ -190,6 +191,7 @@ export const projects: Project[] = [
       { label: 'Quellen', value: 'Text/Foto/EAN' },
       { label: 'Export', value: 'JSON/CSV' },
     ],
+    repo: 'https://github.com/Sarkei/fitness-tracker',
     coverIcon: 'dumbbell',
   },
   {
@@ -216,6 +218,7 @@ export const projects: Project[] = [
       { label: 'Speicher', value: 'SQLite' },
       { label: 'Betrieb', value: 'self-hosted' },
     ],
+    repo: 'https://github.com/Sarkei/budget-tracker',
     coverIcon: 'wallet',
   },
   {
@@ -241,6 +244,7 @@ export const projects: Project[] = [
       { label: 'Upgrades', value: '20' },
       { label: 'Engine', value: 'geteilt' },
     ],
+    repo: 'https://github.com/Sarkei/space-invaders',
     coverIcon: 'gamepad',
   },
   {
@@ -267,6 +271,7 @@ export const projects: Project[] = [
       { label: 'Trigger', value: '12 Trades' },
       { label: 'Risiko', value: 'Stop −2,2 %' },
     ],
+    repo: 'https://github.com/Sarkei/freqtrade-ki-bot',
     coverIcon: 'bot',
   },
 ];

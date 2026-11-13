@@ -57,7 +57,7 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
                   <button
                     onClick={() => setView('desktop')}
                     className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs transition ${
-                      view === 'desktop' ? 'bg-accent-soft text-accent-ink' : 'text-muted hover:text-ink'
+                      view === 'desktop' ? 'bg-accent-soft text-on-accent-soft' : 'text-muted hover:text-ink'
                     }`}
                   >
                     <Monitor size={14} /> Desktop
@@ -66,7 +66,7 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
                     onClick={() => setView('mobile')}
                     disabled={!project.shots?.mobile}
                     className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs transition disabled:opacity-40 ${
-                      view === 'mobile' ? 'bg-accent-soft text-accent-ink' : 'text-muted hover:text-ink'
+                      view === 'mobile' ? 'bg-accent-soft text-on-accent-soft' : 'text-muted hover:text-ink'
                     }`}
                   >
                     <Smartphone size={14} /> Mobil
@@ -142,9 +142,9 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
                 href={project.repo}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-accent underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-2 text-sm text-accent transition hover:border-accent/50"
               >
-                Repository ansehen <ArrowUpRight size={15} />
+                Quellcode auf GitHub <ArrowUpRight size={15} />
               </a>
             )}
           </div>

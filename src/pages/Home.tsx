@@ -68,7 +68,13 @@ const principles = [
   },
 ];
 
-export function Home({ onOpenProject }: { onOpenProject: (id: string) => void }) {
+export function Home({
+  onOpenProject,
+  onNavigate,
+}: {
+  onOpenProject: (id: string) => void;
+  onNavigate: (target: { label: string; to?: string; section?: string }) => void;
+}) {
   const featured = projects.filter((p) => p.shots?.desktop).slice(0, 4);
 
   return (
@@ -101,6 +107,10 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
             </a>
             <a
               href="#kontakt"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate({ label: 'Kontakt', section: 'kontakt' });
+              }}
               className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-3 text-sm transition hover:border-accent/50"
             >
               <Mail size={16} /> Kontakt
@@ -110,8 +120,8 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
           <dl className="reveal mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
             {[
               { k: '9', v: 'eigene Projekte' },
-              { k: '5', v: 'davon im Betrieb' },
-              { k: '900+', v: 'verwaltete Rezepte' },
+              { k: '5', v: 'im Dauerbetrieb' },
+              { k: '7', v: 'Web-Anwendungen' },
               { k: '4', v: 'Sprachen im Einsatz' },
             ].map((s) => (
               <div key={s.v} className="bg-surface px-5 py-5">
@@ -159,9 +169,13 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
 
           <aside className="reveal self-start rounded-2xl border border-line bg-surface p-6">
             <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft font-serif text-lg text-accent-ink">
-                TN
-              </span>
+              <img
+                src="/avatar-128.png"
+                alt="Tim Nagraszus"
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full border border-line object-cover"
+              />
               <div>
                 <p className="font-serif text-lg leading-tight">Tim Nagraszus</p>
                 <p className="text-xs text-muted">Anwendungsentwicklung · Oberbayern</p>

@@ -32,7 +32,7 @@ export function Projects({ onOpenProject }: { onOpenProject: (id: string) => voi
               onClick={() => setActive(c.id)}
               className={`rounded-full border px-3.5 py-1.5 text-sm transition ${
                 active === c.id
-                  ? 'border-accent/40 bg-accent-soft text-accent-ink'
+                  ? 'border-accent/40 bg-accent-soft text-on-accent-soft'
                   : 'border-line bg-surface text-muted hover:text-ink'
               }`}
             >

@@ -10,6 +10,7 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-accent-ink: var(--accent-ink);
+  --color-on-accent-soft: var(--on-accent-soft);
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
@@ -25,6 +26,7 @@
   --accent: #2e6b4f;
   --accent-soft: #e8f0e9;
   --accent-ink: #123a28;
+  --on-accent-soft: #123a28;
   --on-accent: #fbf9f4;
   color-scheme: light;
 }
@@ -39,6 +41,7 @@
   --accent: #9bc7ae;
   --accent-soft: #1c2b23;
   --accent-ink: #0b1710;
+  --on-accent-soft: #cfe6d8;
   --on-accent: #0b1710;
   color-scheme: dark;
 }
@@ -57,7 +60,7 @@ body {
 
 ::selection {
   background: var(--accent-soft);
-  color: var(--accent-ink);
+  color: var(--on-accent-soft);
 }
 
 /* Ruhiger Papier-Look: feine Körnung nur im hellen Theme */
