@@ -7,8 +7,6 @@ export const person = {
   github: 'https://github.com/Sarkei',
   githubHandle: 'github.com/Sarkei',
   location: 'Oberbayern',
-  street: '', // z. B. "Musterstraße 1"
-  zipCity: '', // z. B. "83278 Traunstein"
   updated: 'November 2026',
 };
 

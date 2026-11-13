@@ -85,7 +85,7 @@ export function Home({
         <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-14 sm:pt-20">
           <p className="reveal inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Fachinformatiker für Anwendungsentwicklung
+            Auszubildender Fachinformatiker für Anwendungsentwicklung
           </p>
           <h1 className="reveal mt-6 max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
             Ich baue Web-Apps, die im Alltag
@@ -93,9 +93,10 @@ export function Home({
             werden.
           </h1>
           <p className="reveal mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Ich bin Tim Nagraszus. Ich entwickle Anwendungen von der Datenbank bis zur Oberfläche —
-            mit React, TypeScript und Node, betrieben auf eigener Infrastruktur. Was hier steht, läuft
-            nicht als Demo, sondern täglich im Einsatz.
+            Ich bin Tim Nagraszus, im zweiten Ausbildungsjahr zum Fachinformatiker für
+            Anwendungsentwicklung. In meiner Freizeit baue ich Anwendungen von der Datenbank bis zur
+            Oberfläche — mit React, TypeScript und Node, betrieben auf eigener Infrastruktur. Was hier
+            steht, läuft nicht als Demo, sondern täglich im Einsatz.
           </p>
           <div className="reveal mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -152,9 +153,10 @@ export function Home({
                 Anmeldung und Backup.
               </p>
               <p>
-                Neben der Ausbildung baue ich digitale Services für lokale Betriebe auf — Websites,
-                kleine Web-Apps und Automatisierungen. Am liebsten dort, wo bisher Zettel, Excel und
-                WhatsApp Gruppen die Arbeit machen.
+                Ich bin am Anfang meiner Laufbahn und nutze jedes Projekt, um ein Stück tiefer zu
+                gehen: Datenbankentwurf, Rechte, Deployment, Backups, Fehlersuche im Betrieb. Was ich
+                in der Ausbildung lerne, probiere ich abends an einer eigenen Anwendung aus — und was
+                dort funktioniert, kommt zurück in den nächsten Aufbau.
               </p>
             </div>
             <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
@@ -291,9 +293,9 @@ export function Home({
               <div>
                 <h2 className="font-serif text-3xl sm:text-4xl">Kontakt</h2>
                 <p className="mt-3 max-w-xl text-[16.5px] leading-relaxed text-muted">
-                  Du suchst jemanden für eine Website, eine kleine Web-App oder eine Automatisierung —
-                  oder willst mehr zu einem der Projekte wissen? Schreib mir, ich antworte in der
-                  Regel am selben Tag.
+                  Du hast eine Frage zu einem der Projekte, möchtest dich über meine Arbeit
+                  austauschen oder suchst einen Auszubildenden, der schon eigene Anwendungen
+                  betreibt? Schreib mir — ich antworte in der Regel am selben Tag.
                 </p>
               </div>
               <div className="space-y-3">

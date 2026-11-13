@@ -11,13 +11,17 @@ export function Impressum({ onBack }: { onBack: () => void }) {
 
       <div className="mt-6 space-y-6 rounded-2xl border border-line bg-surface p-6 text-[15px] leading-relaxed sm:p-8">
         <section>
-          <h2 className="text-xs uppercase tracking-[0.16em] text-muted">Angaben gemäß § 5 DDG</h2>
+          <h2 className="text-xs uppercase tracking-[0.16em] text-muted">Angaben zum Anbieter</h2>
           <p className="mt-2">
             {person.name}
             <br />
-            {person.street || 'Straße und Hausnummer'}
-            <br />
-            {person.zipCity || 'Postleitzahl und Ort'}
+            E-Mail: {person.email}
+          </p>
+          <p className="mt-3 text-muted">
+            Diese Website ist mein persönliches Portfolio. Sie ist kein geschäftsmäßiges Angebot:
+            Ich biete hier keine Waren, Dienstleistungen oder Werbung gegen Entgelt an und schließe
+            über diese Seite keine Verträge. Eine ladungsfähige Anschrift wird auf Anfrage per
+            E-Mail mitgeteilt.
           </p>
         </section>
 
@@ -32,14 +36,12 @@ export function Impressum({ onBack }: { onBack: () => void }) {
 
         <section>
           <h2 className="text-xs uppercase tracking-[0.16em] text-muted">
-            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
+            Verantwortlich für den Inhalt
           </h2>
           <p className="mt-2">
             {person.name}
             <br />
-            {person.street || 'Straße und Hausnummer'}
-            <br />
-            {person.zipCity || 'Postleitzahl und Ort'}
+            {person.email}
           </p>
         </section>
 
@@ -79,11 +81,9 @@ export function Datenschutz({ onBack }: { onBack: () => void }) {
           <p className="mt-2">
             {person.name}
             <br />
-            {person.street || 'Straße und Hausnummer'}
-            <br />
-            {person.zipCity || 'Postleitzahl und Ort'}
-            <br />
             E-Mail: {person.email}
+            <br />
+            <span className="text-muted">Postanschrift auf Anfrage</span>
           </p>
         </section>
 
@@ -91,8 +91,9 @@ export function Datenschutz({ onBack }: { onBack: () => void }) {
           <h2 className="text-xs uppercase tracking-[0.16em] text-muted">Grundsatz</h2>
           <p className="mt-2">
             Diese Website ist rein informativ. Es gibt keine Anmeldung, keine Formulare, keine
-            Cookies zur Analyse und kein Tracking durch Dritte. Es werden keine Nutzerprofile
-            gebildet.
+            Analyse-Cookies und kein Tracking durch Dritte. Es werden keine Nutzerprofile gebildet.
+            Gespeichert wird ausschließlich die gewählte Darstellung (hell oder dunkel) im lokalen
+            Speicher des Browsers.
           </p>
         </section>
 
@@ -105,6 +106,18 @@ export function Datenschutz({ onBack }: { onBack: () => void }) {
             Angriffe abzuwehren. Rechtsgrundlage ist das berechtigte Interesse an einem sicheren
             Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Die Logs werden nicht mit anderen Daten
             zusammengeführt und nach kurzer Zeit gelöscht.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xs uppercase tracking-[0.16em] text-muted">Demo-Zugänge</h2>
+          <p className="mt-2">
+            Einige Projekte sind als Demo verlinkt. Diese Demos laufen auf meiner eigenen Hardware
+            und melden automatisch ein festes Beispielkonto an, damit keine Registrierung nötig ist.
+            Die enthaltenen Daten sind erfunden. Für die Anmeldung setzt die jeweilige Anwendung ein
+            technisch notwendiges Sitzungs-Cookie (Art. 6 Abs. 1 lit. f DSGVO); es dient nur der
+            Anmeldung und läuft nach kurzer Zeit ab. Eingegebene Änderungen können jederzeit von mir
+            zurückgesetzt werden — bitte dort keine echten personenbezogenen Daten eintragen.
           </p>
         </section>
 
