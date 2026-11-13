@@ -22,7 +22,7 @@ const kanaele = [
     label: 'Demo-Zugänge',
     value: 'Projekte direkt ausprobieren',
     href: '#/projekte',
-    note: 'Vier Anwendungen öffnen sich mit einem fertigen Beispielkonto, ohne Registrierung.',
+    note: 'Sieben Anwendungen öffnen sich mit einem fertigen Beispielkonto, ohne Registrierung.',
   },
 ];
 
@@ -100,23 +100,6 @@ export function Kontakt() {
         </div>
       </section>
 
-      <section className="mx-auto mt-10 max-w-6xl px-5">
-        <div className="reveal flex flex-col items-start justify-between gap-4 rounded-2xl border border-line bg-surface p-6 sm:flex-row sm:items-center sm:p-8">
-          <div>
-            <p className="font-serif text-2xl">Lieber direkt eine Mail?</p>
-            <p className="mt-1 text-[14px] text-muted">
-              Ein paar Sätze reichen — worum es geht, was du dir vorstellst.
-            </p>
-          </div>
-          <a
-            href={`mailto:${person.email}`}
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-medium transition hover:opacity-90"
-            style={{ color: 'var(--on-accent)' }}
-          >
-            <Mail size={16} /> E-Mail schreiben
-          </a>
-        </div>
-      </section>
     </main>
   );
 }

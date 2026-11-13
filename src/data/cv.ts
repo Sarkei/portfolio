@@ -29,7 +29,8 @@ export const cv = {
       place: 'Agenda Informationssysteme GmbH & Co. KG',
       details: [
         'Mitarbeit an betrieblicher Softwareentwicklung im Team',
-        'Berufsschule 1 Traunstein, Blockunterricht (Klasse IT11b)',
+        'Schwerpunkte: Full-Stack-Anwendungen, Datenbanken, KI-Anbindung, Deployment',
+        'Berufsschule 1 Traunstein, Blockunterricht',
       ],
     },
     {

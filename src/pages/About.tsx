@@ -7,7 +7,7 @@ const steckbrief = [
   { label: 'Im Betrieb seit', value: 'September 2025' },
   { label: 'Ausbildungsbetrieb', value: 'Agenda Software' },
   { label: 'Davor', value: 'Studium Informatik, TH Rosenheim' },
-  { label: 'Schwerpunkt', value: 'Web-Anwendungen, KI-Anbindung, eigener Serverbetrieb' },
+  { label: 'Schwerpunkt', value: 'Full-Stack-Anwendungen, KI-Anbindung, Deployment und eigener Serverbetrieb' },
   { label: 'Standort', value: person.location },
 ];
 

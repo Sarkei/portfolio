@@ -55,7 +55,7 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
             <Printer size={15} /> Drucken
           </button>
           <a
-            href="/lebenslauf.pdf"
+            href="/lebenslauf.pdf?v=2026-11-13b"
             download="Lebenslauf_Tim_Nagraszus.pdf"
             className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-on-accent transition hover:opacity-90"
           >
@@ -156,7 +156,7 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
           <SectionTitle>Eigene Projekte</SectionTitle>
           <p className="mb-5 max-w-[46rem] text-[13px] leading-relaxed text-muted">
             Alle Anwendungen sind von mir entworfen, gebaut und werden von mir betrieben: Datenmodell,
-            API, Oberfläche, Deployment und Backups. Die vier größten im Überblick.
+            API, Oberfläche, Deployment und Backups. Die wichtigsten im Überblick.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {cv.projects.map((p) => (

@@ -17,7 +17,7 @@ export const werdegang = [
     ort: 'Agenda Software',
     punkte: [
       'Mitarbeit an betrieblicher Softwareentwicklung im Team',
-      'Schwerpunkte: Web-Anwendungen, Datenbanken, KI-Anbindung',
+      'Schwerpunkte: Full-Stack-Anwendungen, Datenbanken, KI-Anbindung, Deployment',
       'Eigene Anwendungen von der Datenbank bis zum laufenden Betrieb',
     ],
   },
