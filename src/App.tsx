@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Home } from './pages/Home';
+import { Lebenslauf } from './pages/Lebenslauf';
+import { Impressum, Datenschutz } from './pages/Legal';
 import { Projects } from './pages/Projects';
 import { ProjectModal } from './components/ProjectModal';
 import { projects } from './data/projects';
@@ -10,7 +12,11 @@ export type NavTarget = { label: string; to?: string; section?: string };
 
 function currentRoute() {
   const hash = window.location.hash.replace(/^#/, '');
-  return hash.startsWith('/projekte') ? '/projekte' : '/';
+  if (hash.startsWith('/projekte')) return '/projekte';
+  if (hash.startsWith('/lebenslauf')) return '/lebenslauf';
+  if (hash.startsWith('/impressum')) return '/impressum';
+  if (hash.startsWith('/datenschutz')) return '/datenschutz';
+  return '/';
 }
 
 const nav: NavTarget[] = [
@@ -18,6 +24,7 @@ const nav: NavTarget[] = [
   { label: 'Über mich', section: 'ueber' },
   { label: 'Skills', section: 'skills' },
   { label: 'Projekte', to: '/projekte' },
+  { label: 'Lebenslauf', to: '/lebenslauf' },
   { label: 'Kontakt', section: 'kontakt' },
 ];
 
@@ -134,15 +141,20 @@ export default function App() {
       </header>
 
       <div className="relative z-10">
-        {route === '/projekte' ? (
-          <Projects onOpenProject={openProject} />
-        ) : (
-          <Home onOpenProject={openProject} onNavigate={goTo} />
-        )}
+        {route === '/projekte' && <Projects onOpenProject={openProject} />}
+        {route === '/lebenslauf' && <Lebenslauf onBack={() => goTo({ label: 'Start', section: 'start' })} />}
+        {route === '/impressum' && <Impressum onBack={() => goTo({ label: 'Start', section: 'start' })} />}
+        {route === '/datenschutz' && <Datenschutz onBack={() => goTo({ label: 'Start', section: 'start' })} />}
+        {route === '/' && <Home onOpenProject={openProject} onNavigate={goTo} />}
 
         <footer className="border-t border-line bg-surface/60">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} Tim Nagraszus</p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <p>© {new Date().getFullYear()} Tim Nagraszus</p>
+              <button onClick={() => goTo({ label: 'Lebenslauf', to: '/lebenslauf' })} className="hover:text-ink">Lebenslauf</button>
+              <button onClick={() => goTo({ label: 'Impressum', to: '/impressum' })} className="hover:text-ink">Impressum</button>
+              <button onClick={() => goTo({ label: 'Datenschutz', to: '/datenschutz' })} className="hover:text-ink">Datenschutz</button>
+            </div>
             <p className="text-xs">
               Gebaut mit React, TypeScript und Tailwind CSS — gehostet auf eigener Infrastruktur.
             </p>

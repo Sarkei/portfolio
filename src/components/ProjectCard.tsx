@@ -3,9 +3,9 @@ import type { Project } from '../data/projects';
 import { Cover } from './Cover';
 
 const categoryLabel: Record<Project['category'], string> = {
-  web: 'Web-App',
-  ki: 'KI',
-  tools: 'Werkzeug',
+  web: 'Web-Anwendung',
+  game: 'Spiel',
+  bot: 'Automatisierung',
 };
 
 export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
@@ -25,9 +25,16 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () 
         ) : (
           <Cover project={project} compact />
         )}
-        <span className="absolute left-3 top-3 rounded-full border border-line bg-paper/90 px-2.5 py-1 text-[11px] uppercase tracking-[0.12em] text-muted backdrop-blur">
-          {categoryLabel[project.category]}
-        </span>
+        <div className="absolute left-3 top-3 flex gap-1.5">
+          <span className="rounded-full border border-line bg-paper/90 px-2.5 py-1 text-[11px] uppercase tracking-[0.12em] text-muted backdrop-blur">
+            {categoryLabel[project.category]}
+          </span>
+          {project.ai && (
+            <span className="rounded-full border border-accent/40 bg-accent-soft px-2.5 py-1 text-[11px] uppercase tracking-[0.12em] text-on-accent-soft backdrop-blur">
+              KI
+            </span>
+          )}
+        </div>
       </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-baseline justify-between gap-3">

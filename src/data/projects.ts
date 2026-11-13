@@ -1,4 +1,4 @@
-export type Category = 'web' | 'ki' | 'tools';
+export type Category = 'web' | 'game' | 'bot';
 
 export type Shot = { desktop?: string; mobile?: string };
 
@@ -7,6 +7,7 @@ export type Project = {
   title: string;
   subtitle: string;
   category: Category;
+  ai?: boolean;
   year: string;
   status: 'live' | 'intern' | 'archiv';
   summary: string;
@@ -16,14 +17,15 @@ export type Project = {
   highlights: { label: string; value: string }[];
   shots?: Shot;
   repo?: string;
+  demo?: string;
   coverIcon: 'calendar' | 'target' | 'car' | 'folder' | 'sparkles' | 'dumbbell' | 'wallet' | 'gamepad' | 'bot';
 };
 
 export const categories: { id: Category | 'all'; label: string }[] = [
   { id: 'all', label: 'Alle Projekte' },
-  { id: 'web', label: 'Web-Apps' },
-  { id: 'ki', label: 'KI & Automatisierung' },
-  { id: 'tools', label: 'Spiele & Werkzeuge' },
+  { id: 'web', label: 'Web-Anwendungen' },
+  { id: 'game', label: 'Spiele' },
+  { id: 'bot', label: 'Bots & Automatisierung' },
 ];
 
 export const projects: Project[] = [
@@ -31,7 +33,8 @@ export const projects: Project[] = [
     id: 'meal-planner',
     title: 'Meal Planner',
     subtitle: 'Gemeinsame Essensplanung mit KI',
-    category: 'ki',
+    category: 'web',
+    ai: true,
     year: '2026',
     status: 'live',
     summary:
@@ -51,7 +54,8 @@ export const projects: Project[] = [
       { label: 'Rollen', value: '3' },
       { label: 'Live seit', value: '2026' },
     ],
-    shots: { desktop: '/shots/meal-desktop.png', mobile: '/shots/meal-mobile.png' },
+    shots: { desktop: '/shots/meal-desktop.webp', mobile: '/shots/meal-mobile.webp' },
+    demo: 'https://meal-planner.nas-timgreen.com/?demo=1',
     repo: 'https://github.com/Sarkei/meal-planner',
     coverIcon: 'calendar',
   },
@@ -60,6 +64,7 @@ export const projects: Project[] = [
     title: 'Darts Tracker',
     subtitle: 'Match-Tracking, Statistik und Rangliste',
     category: 'web',
+    ai: true,
     year: '2026',
     status: 'live',
     summary:
@@ -80,7 +85,8 @@ export const projects: Project[] = [
       { label: 'Startpunkte', value: '301–1001' },
       { label: 'Kameras', value: '1–2' },
     ],
-    shots: { desktop: '/shots/darts-desktop.png', mobile: '/shots/darts-mobile.png' },
+    shots: { desktop: '/shots/darts-desktop.webp', mobile: '/shots/darts-mobile.webp' },
+    demo: 'https://darts.nas-timgreen.com/?demo=1',
     repo: 'https://github.com/Sarkei/darts-tracker',
     coverIcon: 'target',
   },
@@ -108,7 +114,8 @@ export const projects: Project[] = [
       { label: 'Kosten', value: 'pro Kopf' },
       { label: 'Rollen', value: 'Nutzer / Admin' },
     ],
-    shots: { desktop: '/shots/mitfahr-desktop.png', mobile: '/shots/mitfahr-mobile.png' },
+    shots: { desktop: '/shots/mitfahr-desktop.webp', mobile: '/shots/mitfahr-mobile.webp' },
+    demo: 'https://tankpreis-rechner.nas-timgreen.com/?demo=1',
     repo: 'https://github.com/Sarkei/tankpreis-rechner',
     coverIcon: 'car',
   },
@@ -137,7 +144,8 @@ export const projects: Project[] = [
       { label: 'Formate', value: '15+' },
       { label: 'Suche', value: 'Volltext' },
     ],
-    shots: { desktop: '/shots/edu-desktop.png', mobile: '/shots/edu-mobile.png' },
+    shots: { desktop: '/shots/edu-desktop.webp', mobile: '/shots/edu-mobile.webp' },
+    demo: 'https://education-planner.nas-timgreen.com/?demo=1',
     repo: 'https://github.com/Sarkei/education-planner',
     coverIcon: 'folder',
   },
@@ -145,7 +153,8 @@ export const projects: Project[] = [
     id: 'kita-planner',
     title: 'Kita-Planer',
     subtitle: 'Pädagogische Angebote per KI',
-    category: 'ki',
+    category: 'web',
+    ai: true,
     year: '2025',
     status: 'intern',
     summary:
@@ -171,7 +180,8 @@ export const projects: Project[] = [
     id: 'fitness-tracker',
     title: 'VRTX Fitness',
     subtitle: 'Training, Ernährung und KI-Coach',
-    category: 'ki',
+    category: 'web',
+    ai: true,
     year: '2026',
     status: 'intern',
     summary:
@@ -225,7 +235,7 @@ export const projects: Project[] = [
     id: 'space-invaders',
     title: 'Space Invaders',
     subtitle: 'Ein Spiel, zwei Renderer',
-    category: 'tools',
+    category: 'game',
     year: '2025',
     status: 'archiv',
     summary:
@@ -251,7 +261,8 @@ export const projects: Project[] = [
     id: 'freqtrade-bot',
     title: 'Freqtrade KI-Bot',
     subtitle: 'Selbstoptimierende Scalping-Strategie',
-    category: 'ki',
+    category: 'bot',
+    ai: true,
     year: '2026',
     status: 'intern',
     summary:

@@ -1,11 +1,39 @@
-import { ArrowUpRight, Monitor, Smartphone, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ArrowUpRight, Monitor, Play, Smartphone, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import type { Project } from '../data/projects';
 import { Cover } from './Cover';
 
 export function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const [view, setView] = useState<'desktop' | 'mobile'>('desktop');
   const hasShots = Boolean(project.shots?.desktop);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Tastatur: Fokus bleibt im Dialog, Escape schließt, danach zurück zum Auslöser.
+  useEffect(() => {
+    const previous = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+    const onTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !dialogRef.current) return;
+      const items = dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onTab);
+    return () => {
+      document.removeEventListener('keydown', onTab);
+      previous?.focus();
+    };
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -29,7 +57,9 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
       aria-label={project.title}
     >
       <div
-        className="my-4 w-full max-w-5xl rounded-3xl border border-line bg-paper shadow-2xl"
+        ref={dialogRef}
+        tabIndex={-1}
+        className="my-4 w-full max-w-5xl rounded-3xl border border-line bg-paper shadow-2xl outline-none"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-4 border-b border-line px-6 py-5">
@@ -137,6 +167,12 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
                 ))}
               </div>
             </div>
+            {project.demo && (
+              <p className="text-xs text-muted">
+                Die Demo öffnet sich mit einem fertigen Beispielkonto — ohne Anmeldung, ohne
+                Registrierung. Änderungen darin betreffen nur die Demodaten.
+              </p>
+            )}
             {project.repo && (
               <a
                 href={project.repo}
@@ -145,6 +181,17 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
                 className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-2 text-sm text-accent transition hover:border-accent/50"
               >
                 Quellcode auf GitHub <ArrowUpRight size={15} />
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition hover:opacity-90"
+                style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
+              >
+                <Play size={14} /> Live-Demo öffnen
               </a>
             )}
           </div>
