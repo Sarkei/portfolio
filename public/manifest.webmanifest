@@ -1,0 +1,14 @@
+{
+  "name": "Tim Nagraszus — Portfolio",
+  "short_name": "Portfolio",
+  "description": "Portfolio von Tim Nagraszus: Web-Apps, KI-Integration und self-hosted Infrastruktur.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf9f4",
+  "theme_color": "#2e6b4f",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
