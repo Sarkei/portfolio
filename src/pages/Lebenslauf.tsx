@@ -3,7 +3,7 @@ import { cv } from '../data/cv';
 
 function SectionTitle({ children }: { children: string }) {
   return (
-    <h2 className="mb-4 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+    <h2 className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
       {children}
       <span className="h-px flex-1 bg-line" />
     </h2>
@@ -14,19 +14,19 @@ type Entry = { period: string; title: string; place: string; details?: string[] 
 
 function Timeline({ entries }: { entries: Entry[] }) {
   return (
-    <ol className="space-y-5">
+    <ol className="divide-y divide-line/70">
       {entries.map((e) => (
-        <li key={e.period + e.title} className="grid gap-1 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
-          <span className="pt-0.5 text-[11px] font-medium uppercase tracking-[0.08em] text-muted">
+        <li key={e.period + e.title} className="grid gap-1 py-5 first:pt-0 last:pb-0 sm:grid-cols-[8.5rem_1fr] sm:gap-6">
+          <span className="pt-1 text-[11px] font-medium uppercase tracking-[0.09em] text-muted">
             {e.period}
           </span>
           <div>
-            <p className="text-[15px] font-semibold leading-snug text-ink">{e.title}</p>
-            <p className="text-sm text-muted">{e.place}</p>
+            <p className="text-[16px] font-semibold leading-snug text-ink">{e.title}</p>
+            <p className="mt-0.5 text-[13.5px] text-muted">{e.place}</p>
             {e.details?.length ? (
-              <ul className="mt-1.5 space-y-1">
+              <ul className="mt-2 space-y-1.5">
                 {e.details.map((d) => (
-                  <li key={d} className="relative pl-3.5 text-[13px] leading-relaxed text-muted">
+                  <li key={d} className="relative pl-4 text-[13.5px] leading-relaxed text-muted">
                     <span className="absolute left-0 top-[0.62em] h-1 w-1 rounded-full bg-accent/60" />
                     {d}
                   </li>
@@ -37,6 +37,26 @@ function Timeline({ entries }: { entries: Entry[] }) {
         </li>
       ))}
     </ol>
+  );
+}
+
+function PageHead({ section }: { section: string }) {
+  return (
+    <div className="mb-6 flex items-baseline justify-between border-b border-line pb-2.5">
+      <span className="font-serif text-[15px] text-ink">{cv.name}</span>
+      <span className="text-[10px] uppercase tracking-[0.16em] text-muted">Lebenslauf · {section}</span>
+    </div>
+  );
+}
+
+function Footer({ note, page }: { note: string; page: string }) {
+  return (
+    <footer className="mt-auto flex items-center justify-between border-t border-line pt-3 text-[10.5px] uppercase tracking-[0.1em] text-muted">
+      <span>
+        {cv.name} · {note}
+      </span>
+      <span>{page}</span>
+    </footer>
   );
 }
 
@@ -55,7 +75,7 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
             <Printer size={15} /> Drucken
           </button>
           <a
-            href="/lebenslauf.pdf?v=2026-11-13b"
+            href="/lebenslauf.pdf?v=2026-11-13c"
             download="Lebenslauf_Tim_Nagraszus.pdf"
             className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-on-accent transition hover:opacity-90"
           >
@@ -64,7 +84,8 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
         </div>
       </div>
 
-      <article className="cv-sheet rounded-2xl bg-surface px-6 py-8 shadow-[0_1px_2px_rgba(22,36,28,0.06),0_12px_40px_-24px_rgba(22,36,28,0.35)] ring-1 ring-line sm:px-10 sm:py-10">
+      {/* Blatt 1: Beruf und Ausbildung */}
+      <article className="cv-sheet flex flex-col rounded-2xl bg-surface px-6 py-8 shadow-[0_1px_2px_rgba(22,36,28,0.06),0_12px_40px_-24px_rgba(22,36,28,0.35)] ring-1 ring-line sm:px-10 sm:py-10">
         <header className="border-b border-line pb-6">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
             <div>
@@ -103,99 +124,99 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
           </dl>
         </section>
 
-        <div className="cv-grid grid gap-8 pt-6 lg:gap-10">
-          <div className="space-y-8">
-            <section>
-              <SectionTitle>Berufserfahrung</SectionTitle>
-              <Timeline entries={cv.experience} />
-            </section>
+        <section className="pt-6">
+          <SectionTitle>Berufserfahrung</SectionTitle>
+          <Timeline entries={cv.experience} />
+        </section>
 
-            <section>
-              <SectionTitle>Ausbildung</SectionTitle>
-              <Timeline entries={cv.education} />
-            </section>
+        <section className="mt-7 border-t border-line pt-6">
+          <SectionTitle>Ausbildung</SectionTitle>
+          <Timeline entries={cv.education} />
+        </section>
 
-          </div>
+        <Footer note="Lebenslauf" page="Seite 1 von 3" />
+      </article>
 
-          <aside className="space-y-7">
-            <section>
-              <SectionTitle>Kenntnisse</SectionTitle>
-              <div className="space-y-3.5">
-                {cv.skills.map((g) => (
-                  <div key={g.label}>
-                    <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink">{g.label}</p>
-                    <p className="text-[12.5px] leading-relaxed text-muted">{g.items.join(' · ')}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <SectionTitle>Sprachen</SectionTitle>
-              <ul className="space-y-1.5">
-                {cv.languages.map((l) => (
-                  <li key={l.name} className="flex items-baseline justify-between gap-2 text-[13px]">
-                    <span className="text-ink">{l.name}</span>
-                    <span className="text-[11px] text-muted">{l.level}</span>
+      {/* Blatt 2: Kenntnisse, Sprachen, Arbeitsweise */}
+      <article className="cv-sheet cv-sheet--second mt-6 flex flex-col rounded-2xl bg-surface px-6 py-8 shadow-[0_1px_2px_rgba(22,36,28,0.06),0_12px_40px_-24px_rgba(22,36,28,0.35)] ring-1 ring-line sm:px-10 sm:py-10">
+        <PageHead section="Kenntnisse" />
+        <SectionTitle>Kenntnisse</SectionTitle>
+        <div className="grid gap-3.5 sm:grid-cols-2">
+          {cv.skills.map((g) => (
+            <div key={g.label} className="rounded-xl border border-line/80 px-5 py-[18px]">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-accent">{g.label}</p>
+              <ul className="mt-2.5 flex flex-wrap gap-1.5">
+                {g.items.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-md bg-surface-2 px-2.5 py-1.5 text-[12.5px] leading-tight text-ink/85"
+                  >
+                    {item}
                   </li>
                 ))}
               </ul>
-            </section>
+            </div>
+          ))}
+        </div>
 
-          </aside>
-          </div>
+        <section className="mt-9">
+          <SectionTitle>Sprachen</SectionTitle>
+          <ul className="grid gap-3 sm:grid-cols-3">
+            {cv.languages.map((l) => (
+              <li key={l.name} className="rounded-xl bg-surface-2 px-4 py-3.5">
+                <p className="text-[15px] font-semibold text-ink">{l.name}</p>
+                <p className="mt-1 text-[12px] uppercase tracking-[0.06em] text-muted">{l.level}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-        <footer className="mt-8 flex items-center justify-between border-t border-line pt-3 text-[10.5px] uppercase tracking-[0.1em] text-muted">
-          <span>{cv.name} · Lebenslauf</span>
-          <span>Seite 1 von 2</span>
-        </footer>
-      </article>
-
-      <article className="cv-sheet cv-sheet--second mt-6 rounded-2xl bg-surface px-6 py-8 shadow-[0_1px_2px_rgba(22,36,28,0.06),0_12px_40px_-24px_rgba(22,36,28,0.35)] ring-1 ring-line sm:px-10 sm:py-10">
-        <section>
-          <SectionTitle>Eigene Projekte</SectionTitle>
-          <p className="mb-5 max-w-[46rem] text-[13px] leading-relaxed text-muted">
-            Alle Anwendungen sind von mir entworfen, gebaut und werden von mir betrieben: Datenmodell,
-            API, Oberfläche, Deployment und Backups. Die wichtigsten im Überblick.
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {cv.projects.map((p) => (
-              <div key={p.title} className="rounded-xl border border-line/80 p-4">
-                <p className="text-[14px] font-semibold text-ink">{p.title}</p>
-                <p className="mt-1.5 text-[12.5px] leading-relaxed text-muted">{p.text}</p>
-                <p className="mt-2.5 text-[10.5px] uppercase tracking-[0.07em] text-accent">{p.tech}</p>
+        <section className="mt-9">
+          <SectionTitle>Wie ich arbeite</SectionTitle>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {cv.principles.map((p) => (
+              <div key={p.title} className="border-t-2 border-accent/30 pt-3">
+                <p className="text-[13.5px] font-semibold text-ink">{p.title}</p>
+                <p className="mt-1 text-[12.5px] leading-relaxed text-muted">{p.text}</p>
               </div>
             ))}
           </div>
-          <div className="mt-7">
-            <SectionTitle>Wie ich arbeite</SectionTitle>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {cv.principles.map((p) => (
-                <div key={p.title}>
-                  <p className="text-[13px] font-semibold text-ink">{p.title}</p>
-                  <p className="mt-1 text-[12px] leading-relaxed text-muted">{p.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-7 grid gap-4 border-t border-line pt-5 sm:grid-cols-[7rem_1fr]">
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-accent">Interessen</p>
-            <p className="text-[12.5px] leading-relaxed text-muted">{cv.interests.join(' · ')}</p>
-          </div>
-
-          <div className="mt-7 rounded-xl bg-accent-soft px-4 py-3.5">
-            <p className="text-[12px] leading-relaxed text-on-accent-soft">
-              Screenshots, Demo-Zugänge und Quellcode zu allen neun Projekten:
-              <span className="font-semibold"> portfolio.nas-timgreen.com</span>
-            </p>
-          </div>
         </section>
 
-        <footer className="mt-8 flex items-center justify-between border-t border-line pt-3 text-[10.5px] uppercase tracking-[0.1em] text-muted">
-          <span>{cv.name} · Projekte</span>
-          <span>Seite 2 von 2</span>
-        </footer>
+        <section className="mt-8 border-t border-line pt-5">
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-accent">Interessen</p>
+          <p className="mt-2 text-[12.5px] leading-relaxed text-muted">{cv.interests.join(' · ')}</p>
+        </section>
+
+        <Footer note="Kenntnisse" page="Seite 2 von 3" />
+      </article>
+
+      {/* Blatt 3: Projekte */}
+      <article className="cv-sheet cv-sheet--third mt-6 flex flex-col rounded-2xl bg-surface px-6 py-8 shadow-[0_1px_2px_rgba(22,36,28,0.06),0_12px_40px_-24px_rgba(22,36,28,0.35)] ring-1 ring-line sm:px-10 sm:py-10">
+        <PageHead section="Projekte" />
+        <SectionTitle>Eigene Projekte</SectionTitle>
+        <p className="mb-5 max-w-[46rem] text-[13px] leading-relaxed text-muted">
+          Alle neun Anwendungen sind von mir entworfen, gebaut und werden von mir betrieben:
+          Datenmodell, API, Oberfläche, Deployment und Backups.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {cv.projects.map((p) => (
+            <div key={p.title} className="rounded-xl border border-line/80 p-4 last:sm:col-span-2">
+              <p className="text-[14px] font-semibold text-ink">{p.title}</p>
+              <p className="mt-1.5 text-[12.5px] leading-relaxed text-muted">{p.text}</p>
+              <p className="mt-2.5 text-[10.5px] uppercase tracking-[0.07em] text-accent">{p.tech}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-xl bg-accent-soft px-4 py-3.5">
+          <p className="text-[12px] leading-relaxed text-on-accent-soft">
+            Screenshots, Demo-Zugänge und Quellcode zu allen neun Projekten:
+            <span className="font-semibold"> portfolio.nas-timgreen.com</span>
+          </p>
+        </div>
+
+        <Footer note="Projekte" page="Seite 3 von 3" />
       </article>
     </main>
   );

@@ -89,6 +89,21 @@ export const cv = {
       text: 'Trainings- und Ernährungsprotokoll mit Wochenauswertung, Fortschrittskurven und einem Coach, der auf die eigenen Daten antwortet.',
       tech: 'React · TypeScript · PostgreSQL',
     },
+    {
+      title: 'Budget-Tracker',
+      text: 'Doppelte Buchführung im Alltag: Konten, Budgets je Kategorie, Monatsvergleich und Auswertung nach Zeitraum.',
+      tech: 'C# · .NET · Blazor · SQLite',
+    },
+    {
+      title: 'Space Invaders',
+      text: 'Arcade-Spiel in Java mit strikt getrennter Spiellogik, zwei Renderern, Gegnerwellen und zwanzig Upgrades.',
+      tech: 'Java 21 · Swing · WebSockets · Maven',
+    },
+    {
+      title: 'KI-Trading-Bot',
+      text: 'Scalping-Strategie für Krypto-Paare mit eigener Indikator-Logik, Risikogrenzen und Auswertung im Backtest.',
+      tech: 'Python · Freqtrade · Docker',
+    },
   ],
   principles: [
     { title: 'Erst der Datenbestand', text: 'Schema, Rechte und Migrationen vor der Oberfläche — sonst räumt man später hinterher.' },
