@@ -170,7 +170,7 @@ export function Home({
           <aside className="reveal self-start rounded-2xl border border-line bg-surface p-6">
             <div className="flex items-center gap-3">
               <img
-                src="/avatar-128.png"
+                src="/portrait-128.png"
                 alt="Tim Nagraszus"
                 width={72}
                 height={72}
@@ -214,31 +214,6 @@ export function Home({
         </div>
       </section>
 
-      {/* Ausgewählte Projekte */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <div className="reveal flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 className="font-serif text-3xl sm:text-4xl">Ausgewählte Projekte</h2>
-              <p className="mt-2 max-w-xl text-muted">
-                Vier Anwendungen, die täglich laufen — mit Bildschirmfotos aus Desktop- und
-                Mobilansicht.
-              </p>
-            </div>
-            <a href="#/projekte" className="text-sm text-accent underline-offset-4 hover:underline">
-              Alle {projects.length} Projekte →
-            </a>
-          </div>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:items-start">
-            {featured.map((p) => (
-              <div key={p.id} className="reveal">
-                <ProjectCard project={p} onOpen={() => onOpenProject(p.id)} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Skills */}
       <section id="skills" className="border-t border-line bg-surface/60">
         <div className="mx-auto max-w-6xl px-5 py-16">
@@ -277,6 +252,31 @@ export function Home({
                 <span className="font-serif text-2xl text-accent">0{i + 1}</span>
                 <h3 className="mt-3 font-serif text-xl">{p.title}</h3>
                 <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ausgewählte Projekte */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <div className="reveal flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="font-serif text-3xl sm:text-4xl">Ausgewählte Projekte</h2>
+              <p className="mt-2 max-w-xl text-muted">
+                Vier Anwendungen, die täglich laufen — mit Bildschirmfotos aus Desktop- und
+                Mobilansicht.
+              </p>
+            </div>
+            <a href="#/projekte" className="text-sm text-accent underline-offset-4 hover:underline">
+              Alle {projects.length} Projekte →
+            </a>
+          </div>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:items-start">
+            {featured.map((p) => (
+              <div key={p.id} className="reveal">
+                <ProjectCard project={p} onOpen={() => onOpenProject(p.id)} />
               </div>
             ))}
           </div>

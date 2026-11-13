@@ -70,7 +70,7 @@ export default function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
           <button onClick={() => goTo({ label: 'Start', section: 'start' })} className="flex items-center gap-2.5 text-left">
             <img
-              src="/avatar-128.png"
+              src="/portrait-128.png"
               alt="Porträt von Tim Nagraszus"
               width={44}
               height={44}
