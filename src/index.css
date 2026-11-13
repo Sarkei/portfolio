@@ -17,27 +17,28 @@
 }
 
 :root {
-  --paper: #fbf9f4;
+  /* Hintergrund: zwei neutrale Grautöne, Karten bleiben grünlich/weiß */
+  --paper: #eceff0;
   --surface: #ffffff;
-  --surface-2: #f4f2ea;
+  --surface-2: #e2e6e5;
   --ink: #16241c;
-  --muted: #5b6b60;
-  --line: #e2dfd4;
+  --muted: #58665e;
+  --line: #dfe3e1;
   --accent: #2e6b4f;
   --accent-soft: #e8f0e9;
   --accent-ink: #123a28;
   --on-accent-soft: #123a28;
-  --on-accent: #fbf9f4;
+  --on-accent: #ffffff;
   color-scheme: light;
 }
 
 [data-theme='dark'] {
-  --paper: #0e1512;
+  --paper: #101413;
   --surface: #16211c;
   --surface-2: #1b2822;
   --ink: #e9efea;
   --muted: #9dafa4;
-  --line: #283730;
+  --line: #2a332e;
   --accent: #9bc7ae;
   --accent-soft: #1c2b23;
   --accent-ink: #e8f4ec;
@@ -133,10 +134,10 @@ body {
   [data-theme='dark'] {
     --paper: #ffffff;
     --surface: #ffffff;
-    --surface-2: #f5f3ed;
+    --surface-2: #eef1f0;
     --ink: #16241c;
     --muted: #55645a;
-    --line: #dcd9ce;
+    --line: #dfe3e1;
     --accent: #2e6b4f;
     --accent-soft: #e8f0e9;
     --accent-ink: #123a28;

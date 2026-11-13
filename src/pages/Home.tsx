@@ -42,7 +42,6 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
     <main id="start">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -right-32 -top-24 h-[420px] w-[420px] rounded-full bg-accent-soft blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-14 sm:pt-20">
           <p className="reveal inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
