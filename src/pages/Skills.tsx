@@ -97,7 +97,7 @@ export function Skills() {
         intro="Keine Schlagwortsammlung: Jedes dieser Werkzeuge steckt in mindestens einem Projekt, das gerade läuft. Die Notizen sagen, wofür ich es einsetze."
       />
 
-      <section className="mx-auto mt-6 max-w-6xl px-5">
+      <section className="mx-auto mt-6 max-w-[1360px] px-5">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:items-start">
           {groups.map((g) => (
             <div key={g.title} className="reveal rounded-2xl border border-line bg-surface p-5">
@@ -119,7 +119,7 @@ export function Skills() {
         </div>
       </section>
 
-      <section className="mx-auto mt-14 max-w-6xl px-5">
+      <section className="mx-auto mt-14 max-w-[1360px] px-5">
         <div className="reveal rounded-2xl border border-line bg-surface p-6">
           <h2 className="font-serif text-2xl">Sprachen</h2>
           <dl className="mt-4 divide-y divide-line/70 border-t border-line/70">

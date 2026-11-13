@@ -13,7 +13,7 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="mx-auto max-w-6xl px-5 pb-4 pt-12">
+    <header className="mx-auto max-w-[1360px] px-5 pb-4 pt-12">
       <p className="reveal inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
         <span className="h-1.5 w-1.5 rounded-full bg-accent" />
         {label}

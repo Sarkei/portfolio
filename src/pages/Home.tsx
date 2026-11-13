@@ -42,17 +42,17 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
     <main id="start">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-14 sm:pt-20">
+        <div className="relative mx-auto max-w-[1360px] px-5 pb-16 pt-14 sm:pt-20">
           <p className="reveal inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Auszubildender Fachinformatiker für Anwendungsentwicklung
           </p>
-          <h1 className="reveal mt-6 max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="reveal mt-6 max-w-4xl font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
             Ich baue Web-Apps, die im Alltag
             <span className="italic text-accent"> wirklich benutzt </span>
             werden.
           </h1>
-          <p className="reveal mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="reveal mt-6 max-w-3xl text-lg leading-relaxed text-muted">
             Ich bin Tim Nagraszus, im zweiten Ausbildungsjahr zum Fachinformatiker für
             Anwendungsentwicklung. In meiner Freizeit baue ich Anwendungen von der Datenbank bis zur
             Oberfläche — mit React, TypeScript und Node, betrieben auf eigener Infrastruktur. Was hier
@@ -92,7 +92,7 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
 
       {/* Übersicht: die fünf Bereiche */}
       <section className="border-t border-line bg-surface-2">
-        <div className="mx-auto max-w-6xl px-5 py-16">
+        <div className="mx-auto max-w-[1360px] px-5 py-16">
           <div className="reveal flex flex-wrap items-end justify-between gap-3">
             <h2 className="font-serif text-3xl sm:text-4xl">Alles auf einen Blick</h2>
             <p className="text-sm text-muted">Fünf Bereiche, jeder mit eigener Seite</p>
@@ -121,7 +121,7 @@ export function Home({ onOpenProject }: { onOpenProject: (id: string) => void })
 
       {/* Ausgewählte Projekte */}
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-5 py-16">
+        <div className="mx-auto max-w-[1360px] px-5 py-16">
           <div className="reveal flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl">Ausgewählte Projekte</h2>

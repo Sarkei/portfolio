@@ -38,7 +38,7 @@ export function About() {
         intro="Anwendungsentwicklung ist für mich kein Selbstzweck. Der Moment, in dem jemand ein Werkzeug von mir benutzt und es dadurch einfacher hat — dafür baue ich."
       />
 
-      <section className="mx-auto max-w-6xl px-5 pt-8">
+      <section className="mx-auto max-w-[1360px] px-5 pt-8">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-start">
           <div className="reveal space-y-5 text-[16.5px] leading-relaxed">
             <p>
@@ -104,7 +104,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="mx-auto mt-16 max-w-6xl px-5">
+      <section className="mx-auto mt-16 max-w-[1360px] px-5">
         <h2 className="reveal font-serif text-3xl">Was mir wichtig ist</h2>
         <p className="reveal mt-2 max-w-2xl text-muted">
           Drei Sätze dazu, wie ich an ein Projekt herangehe — unabhängig davon, wie groß es ist.
@@ -120,7 +120,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="mx-auto mt-16 max-w-6xl px-5">
+      <section className="mx-auto mt-16 max-w-[1360px] px-5">
         <h2 className="reveal font-serif text-3xl">Mein Weg hierher</h2>
         <ol className="mt-7 space-y-6 border-l border-line pl-6">
           {werdegang.map((a) => (

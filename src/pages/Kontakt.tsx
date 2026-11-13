@@ -35,7 +35,7 @@ export function Kontakt() {
         intro="Frage zu einem Projekt, Feedback zum Code oder Interesse an einem Auszubildenden, der schon eigene Anwendungen betreibt — alles willkommen."
       />
 
-      <section className="mx-auto mt-6 max-w-6xl px-5">
+      <section className="mx-auto mt-6 max-w-[1360px] px-5">
         <div className="grid gap-4 md:grid-cols-3">
           {kanaele.map((k) => (
             <a
@@ -56,7 +56,7 @@ export function Kontakt() {
         </div>
       </section>
 
-      <section className="mx-auto mt-8 max-w-6xl px-5">
+      <section className="mx-auto mt-8 max-w-[1360px] px-5">
         <div className="reveal grid gap-6 rounded-2xl border border-line bg-surface p-6 sm:grid-cols-2 sm:p-8">
           <div>
             <h2 className="font-serif text-2xl">Was ich gerade suche</h2>

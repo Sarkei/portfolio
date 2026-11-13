@@ -81,7 +81,7 @@ export default function App() {
   return (
     <div className="grain relative min-h-screen">
       <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+        <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-4 px-5 py-3">
           <button onClick={() => goTo({ label: 'Start', section: 'start' })} className="flex items-center gap-2.5 text-left">
             <img
               src="/portrait-128.png"
@@ -158,7 +158,7 @@ export default function App() {
         {route === '/' && <Home onOpenProject={openProject} />}
 
         <footer className="border-t border-line bg-surface-2">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+          <div className="mx-auto flex max-w-[1360px] flex-col gap-3 px-5 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
               <p>© {new Date().getFullYear()} Tim Nagraszus</p>
               <button onClick={() => goTo({ label: 'Lebenslauf', to: '/lebenslauf' })} className="hover:text-ink">Lebenslauf</button>
