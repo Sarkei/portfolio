@@ -172,9 +172,9 @@ export function Home({
               <img
                 src="/avatar-128.png"
                 alt="Tim Nagraszus"
-                width={48}
-                height={48}
-                className="h-12 w-12 rounded-full border border-line object-cover"
+                width={72}
+                height={72}
+                className="h-[72px] w-[72px] rounded-full object-cover ring-2 ring-line ring-offset-2 ring-offset-surface"
               />
               <div>
                 <p className="font-serif text-lg leading-tight">Tim Nagraszus</p>

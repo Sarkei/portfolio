@@ -72,9 +72,9 @@ export default function App() {
             <img
               src="/avatar-128.png"
               alt="Porträt von Tim Nagraszus"
-              width={38}
-              height={38}
-              className="h-[38px] w-[38px] rounded-full border border-line object-cover"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-full object-cover ring-2 ring-line ring-offset-2 ring-offset-paper"
             />
             <span className="font-serif text-[15px] leading-tight">
               Tim Nagraszus
