@@ -20,7 +20,7 @@ export const cv = {
   highlights: [
     { value: '9', label: 'eigene Anwendungen' },
     { value: '5', label: 'im Dauerbetrieb' },
-    { value: '2.', label: 'Ausbildungsjahr' },
+    { value: '2', label: 'Ausbildungsjahr' },
   ],
   experience: [
     {

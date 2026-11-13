@@ -142,10 +142,6 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
               </ul>
             </section>
 
-            <section>
-              <SectionTitle>Interessen</SectionTitle>
-              <p className="text-[12.5px] leading-relaxed text-muted">{cv.interests.join(' · ')}</p>
-            </section>
           </aside>
           </div>
 
@@ -181,6 +177,11 @@ export function Lebenslauf({ onBack }: { onBack: () => void }) {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="mt-7 grid gap-4 border-t border-line pt-5 sm:grid-cols-[7rem_1fr]">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-accent">Interessen</p>
+            <p className="text-[12.5px] leading-relaxed text-muted">{cv.interests.join(' · ')}</p>
           </div>
 
           <div className="mt-7 rounded-xl bg-accent-soft px-4 py-3.5">

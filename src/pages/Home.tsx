@@ -1,80 +1,41 @@
-import {
-  ArrowRight,
-  Boxes,
-  Database,
-  GitBranch,
-  Layers,
-  Mail,
-  Server,
-  Sparkles,
-  Terminal,
-  Wrench,
-} from 'lucide-react';
+import { ArrowRight, FileText, FolderKanban, Mail, User, Wrench } from 'lucide-react';
 import { projects } from '../data/projects';
 import { ProjectCard } from '../components/ProjectCard';
 
-const facts = [
-  { label: 'Ausbildung', value: 'Fachinformatiker für Anwendungsentwicklung, 2. Ausbildungsjahr' },
-  { label: 'Betrieb', value: 'Agenda Software' },
-  { label: 'Berufsschule', value: 'BS1 Traunstein, Blockunterricht' },
-  { label: 'Schwerpunkt', value: 'Web-Apps, KI-Integration, self-hosted Betrieb' },
-];
-
-const skillGroups = [
+const teile = [
   {
-    icon: Layers,
-    title: 'Frontend',
-    items: ['React 19', 'TypeScript', 'Tailwind CSS', 'Vite', 'Blazor', 'PWA'],
-  },
-  {
-    icon: Server,
-    title: 'Backend',
-    items: ['Node.js', 'Express', 'PostgreSQL', 'REST-APIs', 'SSE & WebSockets', 'JWT-Auth'],
-  },
-  {
-    icon: Terminal,
-    title: 'Betrieb & Deployment',
-    items: ['Docker & Compose', 'Linux', 'Cloudflare Tunnel', 'Self-Hosting', 'Backups & Monitoring'],
-  },
-  {
-    icon: Sparkles,
-    title: 'KI-Integration',
-    items: ['DeepSeek', 'Mistral', 'Gemini', 'Prompt-Design', 'Function Calling', 'Strukturierte Ausgaben'],
-  },
-  {
-    icon: Boxes,
-    title: 'Weitere Sprachen',
-    items: ['C# / .NET 8', 'Java 21', 'Python', 'SQL'],
+    icon: User,
+    to: '#/ueber-mich',
+    title: 'Über mich',
+    text: 'Woher ich komme, was mich an Anwendungsentwicklung reizt und womit ich mich messe.',
   },
   {
     icon: Wrench,
-    title: 'Arbeitsweise',
-    items: ['Datenmodell zuerst', 'Kleine Commits', 'Tests vor dem Deploy', 'Dokumentation im Repo'],
+    to: '#/skills',
+    title: 'Skills',
+    text: 'Die Werkzeuge, mit denen ich baue — jeweils mit dem Hinweis, wofür ich sie einsetze.',
+  },
+  {
+    icon: FolderKanban,
+    to: '#/projekte',
+    title: 'Projekte',
+    text: `${projects.length} eigene Anwendungen mit Bildschirmfotos, Demo-Zugang und Quellcode.`,
+  },
+  {
+    icon: FileText,
+    to: '#/lebenslauf',
+    title: 'Lebenslauf',
+    text: 'Werdegang, Kenntnisse und Projekte auf zwei Seiten — online und als PDF.',
+  },
+  {
+    icon: Mail,
+    to: '#/kontakt',
+    title: 'Kontakt',
+    text: 'E-Mail, GitHub und der schnellste Weg zu einer Antwort.',
   },
 ];
 
-const principles = [
-  {
-    title: 'Datenmodell vor Oberfläche',
-    text: 'Bevor eine Ansicht entsteht, steht das Schema: Rollen, Rechte, Beziehungen. Änderungen an Feldern werden migriert, nicht überschrieben — sonst zeigt die Oberfläche später etwas anderes als die Datenbank weiß.',
-  },
-  {
-    title: 'Self-hosted statt abhängig',
-    text: 'Alle Projekte laufen auf eigener Hardware: Docker-Container, PostgreSQL, Cloudflare-Tunnel. Daten bleiben dort, wo sie hingehören, und der Betrieb ist reproduzierbar.',
-  },
-  {
-    title: 'KI als Werkzeug, nicht als Fassade',
-    text: 'Modelle bekommen klare Aufgaben, feste Schemas und geprüfte Ergebnisse. Wenn eine Antwort nicht validiert werden kann, wird sie nicht gespeichert — lieber ein Fehler als falsche Daten.',
-  },
-];
-
-export function Home({
-  onOpenProject,
-  onNavigate,
-}: {
-  onOpenProject: (id: string) => void;
-  onNavigate: (target: { label: string; to?: string; section?: string }) => void;
-}) {
+export function Home({ onOpenProject }: { onOpenProject: (id: string) => void }) {
   const featured = projects.filter((p) => p.shots?.desktop).slice(0, 4);
 
   return (
@@ -107,11 +68,7 @@ export function Home({
               Projekte ansehen <ArrowRight size={16} />
             </a>
             <a
-              href="#kontakt"
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate({ label: 'Kontakt', section: 'kontakt' });
-              }}
+              href="#/kontakt"
               className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-3 text-sm transition hover:border-accent/50"
             >
               <Mail size={16} /> Kontakt
@@ -123,7 +80,7 @@ export function Home({
               { k: '9', v: 'eigene Projekte' },
               { k: '5', v: 'im Dauerbetrieb' },
               { k: '7', v: 'Web-Anwendungen' },
-              { k: '4', v: 'Sprachen im Einsatz' },
+              { k: '2', v: 'Ausbildungsjahr' },
             ].map((s) => (
               <div key={s.v} className="bg-surface px-5 py-5">
                 <dt className="font-serif text-3xl leading-none">{s.k}</dt>
@@ -134,127 +91,30 @@ export function Home({
         </div>
       </section>
 
-      {/* Über mich */}
-      <section id="ueber" className="border-t border-line bg-surface/60">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.2fr_1fr]">
-          <div className="reveal">
-            <h2 className="font-serif text-3xl sm:text-4xl">Über mich</h2>
-            <div className="mt-5 space-y-4 text-[16.5px] leading-relaxed">
-              <p>
-                Ich lerne Fachinformatiker für Anwendungsentwicklung bei Agenda Software und bin im
-                zweiten Ausbildungsjahr an der BS1 Traunstein. Der Teil, der mich am meisten
-                interessiert, ist der ganze Weg einer Anwendung: Datenmodell, API, Oberfläche — und
-                der Betrieb danach.
-              </p>
-              <p>
-                Deshalb entstehen meine Projekte nicht als Übungsaufgaben, sondern als Werkzeuge, die
-                ich selbst und mein Umfeld benutzen: Essensplanung, Darts-Abende, Fahrgemeinschaften,
-                Schulunterlagen. Jede App läuft in Docker auf einem eigenen Server, mit Datenbank,
-                Anmeldung und Backup.
-              </p>
-              <p>
-                Ich bin am Anfang meiner Laufbahn und nutze jedes Projekt, um ein Stück tiefer zu
-                gehen: Datenbankentwurf, Rechte, Deployment, Backups, Fehlersuche im Betrieb. Was ich
-                in der Ausbildung lerne, probiere ich abends an einer eigenen Anwendung aus — und was
-                dort funktioniert, kommt zurück in den nächsten Aufbau.
-              </p>
-            </div>
-            <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
-              {facts.map((f) => (
-                <div key={f.label} className="bg-surface px-4 py-3.5">
-                  <dt className="text-[11px] uppercase tracking-[0.14em] text-muted">{f.label}</dt>
-                  <dd className="mt-1 text-sm">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <aside className="reveal self-start rounded-2xl border border-line bg-surface p-6">
-            <div className="flex items-center gap-3">
-              <img
-                src="/portrait-128.png"
-                alt="Tim Nagraszus"
-                width={72}
-                height={72}
-                className="h-[72px] w-[72px] rounded-full object-cover ring-2 ring-line ring-offset-2 ring-offset-surface"
-              />
-              <div>
-                <p className="font-serif text-lg leading-tight">Tim Nagraszus</p>
-                <p className="text-xs text-muted">Anwendungsentwicklung · Oberbayern</p>
-              </div>
-            </div>
-            <div className="mt-6 space-y-4 text-sm">
-              <div className="flex items-start gap-3">
-                <Database size={17} className="mt-0.5 shrink-0 text-accent" />
-                <p className="text-muted">
-                  <span className="text-ink">Vollständige Anwendungen</span> — von der ersten Tabelle
-                  bis zum Deployment, inklusive Anmeldung, Rechten und Sicherung.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <GitBranch size={17} className="mt-0.5 shrink-0 text-accent" />
-                <p className="text-muted">
-                  <span className="text-ink">Nachvollziehbar</span> — jede Änderung im Repo, jede
-                  Entscheidung dokumentiert, Deployments wiederholbar.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Sparkles size={17} className="mt-0.5 shrink-0 text-accent" />
-                <p className="text-muted">
-                  <span className="text-ink">KI dort, wo sie hilft</span> — Planung, Texte,
-                  Auswertungen. Nicht als Ersatz für Logik, sondern als Beschleuniger.
-                </p>
-              </div>
-            </div>
-            <a
-              href="#/projekte"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm text-accent underline-offset-4 hover:underline"
-            >
-              Alle Projekte <ArrowRight size={15} />
-            </a>
-          </aside>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section id="skills" className="border-t border-line bg-surface/60">
+      {/* Übersicht: die fünf Bereiche */}
+      <section className="border-t border-line bg-surface/60">
         <div className="mx-auto max-w-6xl px-5 py-16">
-          <h2 className="reveal font-serif text-3xl sm:text-4xl">Womit ich arbeite</h2>
-          <p className="reveal mt-2 max-w-2xl text-muted">
-            Kein Sammelbecken aus Schlagwörtern: Diese Werkzeuge sind in den Projekten unten
-            tatsächlich im Einsatz.
-          </p>
+          <div className="reveal flex flex-wrap items-end justify-between gap-3">
+            <h2 className="font-serif text-3xl sm:text-4xl">Alles auf einen Blick</h2>
+            <p className="text-sm text-muted">Fünf Bereiche, jeder mit eigener Seite</p>
+          </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {skillGroups.map((g) => (
-              <div key={g.title} className="reveal rounded-2xl border border-line bg-surface p-5">
-                <div className="flex items-center gap-2.5">
-                  <g.icon size={18} className="text-accent" />
-                  <h3 className="text-sm font-medium">{g.title}</h3>
+            {teile.map((t) => (
+              <a
+                key={t.title}
+                href={t.to}
+                className="reveal group flex flex-col rounded-2xl border border-line bg-surface p-5 transition hover:border-accent/50"
+              >
+                <div className="flex items-center justify-between">
+                  <t.icon size={19} className="text-accent" />
+                  <ArrowRight
+                    size={16}
+                    className="text-muted transition group-hover:translate-x-0.5 group-hover:text-accent"
+                  />
                 </div>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {g.items.map((i) => (
-                    <span key={i} className="rounded-full bg-surface-2 px-2.5 py-1 text-xs text-muted">
-                      {i}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Arbeitsweise */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <h2 className="reveal font-serif text-3xl sm:text-4xl">Wie ich arbeite</h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3 md:items-start">
-            {principles.map((p, i) => (
-              <div key={p.title} className="reveal rounded-2xl border border-line bg-surface p-6">
-                <span className="font-serif text-2xl text-accent">0{i + 1}</span>
-                <h3 className="mt-3 font-serif text-xl">{p.title}</h3>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{p.text}</p>
-              </div>
+                <h3 className="mt-4 font-serif text-xl">{t.title}</h3>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-muted">{t.text}</p>
+              </a>
             ))}
           </div>
         </div>
@@ -281,46 +141,6 @@ export function Home({
                 <ProjectCard project={p} onOpen={() => onOpenProject(p.id)} />
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Kontakt */}
-      <section id="kontakt" className="border-t border-line bg-surface/60">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <div className="reveal rounded-3xl border border-line bg-surface p-8 sm:p-12">
-            <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
-              <div>
-                <h2 className="font-serif text-3xl sm:text-4xl">Kontakt</h2>
-                <p className="mt-3 max-w-xl text-[16.5px] leading-relaxed text-muted">
-                  Du hast eine Frage zu einem der Projekte, möchtest dich über meine Arbeit
-                  austauschen oder suchst einen Auszubildenden, der schon eigene Anwendungen
-                  betreibt? Schreib mir — ich antworte in der Regel am selben Tag.
-                </p>
-              </div>
-              <div className="space-y-3">
-                <a
-                  href="mailto:nagraszust@gmail.com"
-                  className="flex items-center justify-between rounded-xl border border-line bg-paper px-4 py-3.5 transition hover:border-accent/50"
-                >
-                  <span className="flex items-center gap-3 text-sm">
-                    <Mail size={17} className="text-accent" /> nagraszust@gmail.com
-                  </span>
-                  <ArrowRight size={16} className="text-muted" />
-                </a>
-                <a
-                  href="https://github.com/Sarkei"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-line bg-paper px-4 py-3.5 transition hover:border-accent/50"
-                >
-                  <span className="flex items-center gap-3 text-sm">
-                    <GitBranch size={17} className="text-accent" /> github.com/Sarkei
-                  </span>
-                  <ArrowRight size={16} className="text-muted" />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

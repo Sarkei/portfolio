@@ -4,6 +4,9 @@ import { Home } from './pages/Home';
 import { Lebenslauf } from './pages/Lebenslauf';
 import { Impressum, Datenschutz } from './pages/Legal';
 import { Projects } from './pages/Projects';
+import { About } from './pages/About';
+import { Skills } from './pages/Skills';
+import { Kontakt } from './pages/Kontakt';
 import { ProjectModal } from './components/ProjectModal';
 import { projects } from './data/projects';
 import { useReveal, useTheme } from './lib/ui';
@@ -12,6 +15,9 @@ export type NavTarget = { label: string; to?: string; section?: string };
 
 function currentRoute() {
   const hash = window.location.hash.replace(/^#/, '');
+  if (hash.startsWith('/ueber-mich')) return '/ueber-mich';
+  if (hash.startsWith('/skills')) return '/skills';
+  if (hash.startsWith('/kontakt')) return '/kontakt';
   if (hash.startsWith('/projekte')) return '/projekte';
   if (hash.startsWith('/lebenslauf')) return '/lebenslauf';
   if (hash.startsWith('/impressum')) return '/impressum';
@@ -20,12 +26,12 @@ function currentRoute() {
 }
 
 const nav: NavTarget[] = [
-  { label: 'Start', section: 'start' },
-  { label: 'Über mich', section: 'ueber' },
-  { label: 'Skills', section: 'skills' },
+  { label: 'Start', to: '/' },
+  { label: 'Über mich', to: '/ueber-mich' },
+  { label: 'Skills', to: '/skills' },
   { label: 'Projekte', to: '/projekte' },
   { label: 'Lebenslauf', to: '/lebenslauf' },
-  { label: 'Kontakt', section: 'kontakt' },
+  { label: 'Kontakt', to: '/kontakt' },
 ];
 
 export default function App() {
@@ -53,8 +59,9 @@ export default function App() {
   const goTo = (target: NavTarget) => {
     setMenuOpen(false);
     if (target.to) {
-      window.location.hash = `#${target.to}`;
-      setRoute(target.to);
+      const next = target.to;
+      window.location.hash = next === '/' ? '#/' : `#${next}`;
+      setRoute(next);
       window.scrollTo({ top: 0 });
       return;
     }
@@ -97,7 +104,7 @@ export default function App() {
                 key={n.label}
                 onClick={() => goTo(n)}
                 className={`rounded-full px-3 py-1.5 text-sm transition hover:text-ink ${
-                  n.to === '/projekte' && route === '/projekte' ? 'text-ink' : 'text-muted'
+                  (n.to === '/' ? route === '/' : n.to === route) ? 'bg-accent-soft text-on-accent-soft' : 'text-muted'
                 }`}
               >
                 {n.label}
@@ -141,11 +148,14 @@ export default function App() {
       </header>
 
       <div className="relative z-10">
+        {route === '/ueber-mich' && <About />}
+        {route === '/skills' && <Skills />}
+        {route === '/kontakt' && <Kontakt />}
         {route === '/projekte' && <Projects onOpenProject={openProject} />}
         {route === '/lebenslauf' && <Lebenslauf onBack={() => goTo({ label: 'Start', section: 'start' })} />}
         {route === '/impressum' && <Impressum onBack={() => goTo({ label: 'Start', section: 'start' })} />}
         {route === '/datenschutz' && <Datenschutz onBack={() => goTo({ label: 'Start', section: 'start' })} />}
-        {route === '/' && <Home onOpenProject={openProject} onNavigate={goTo} />}
+        {route === '/' && <Home onOpenProject={openProject} />}
 
         <footer className="border-t border-line bg-surface/60">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">

@@ -133,10 +133,10 @@ body {
   [data-theme='dark'] {
     --paper: #ffffff;
     --surface: #ffffff;
-    --surface-2: #f6f5f0;
+    --surface-2: #f5f3ed;
     --ink: #16241c;
     --muted: #55645a;
-    --line: #dedbd0;
+    --line: #dcd9ce;
     --accent: #2e6b4f;
     --accent-soft: #e8f0e9;
     --accent-ink: #123a28;
@@ -158,68 +158,91 @@ body {
     display: none !important;
   }
 
-  /* Fußzeilen innerhalb des Lebenslauf-Blattes bleiben */
   .cv-sheet footer {
     display: flex !important;
   }
 
   main {
     max-width: none !important;
+    margin: 0 !important;
     padding: 0 !important;
   }
 
   .cv-sheet {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 12mm 15mm !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    --tw-ring-shadow: 0 0 #0000 !important;
-    padding: 13mm 14mm !important;
-    break-inside: avoid;
+    outline: none !important;
+    border: 0 !important;
   }
 
-  .cv-sheet a {
-    text-decoration: none;
-    color: inherit;
+  .cv-sheet + .cv-sheet {
+    page-break-before: always;
+    break-before: page;
   }
 
-  .cv-sheet section,
-  .cv-sheet li {
-    break-inside: avoid;
-  }
-
-  /* Zweispaltiges Layout auch im Druck (Viewport = Papierbreite < lg) */
-  .cv-grid {
-    display: grid !important;
-    grid-template-columns: 1.5fr 1fr !important;
-    gap: 9mm !important;
-  }
-
+  /* Typografie in echten Druckpunkten */
   .cv-sheet h1 {
-    font-size: 30pt !important;
-  }
-
-  .cv-sheet p,
-  .cv-sheet li,
-  .cv-sheet dd {
-    font-size: 9.4pt !important;
-    line-height: 1.45 !important;
+    font-size: 25pt !important;
+    line-height: 1.08 !important;
   }
 
   .cv-sheet h2 {
     font-size: 8pt !important;
-    margin-bottom: 2.4mm !important;
+    letter-spacing: 0.16em !important;
+    margin-bottom: 3mm !important;
   }
 
-  .cv-sheet--second {
-    page-break-before: always;
-    break-before: page;
-    margin-top: 0 !important;
+  .cv-sheet p,
+  .cv-sheet li,
+  .cv-sheet dd,
+  .cv-sheet span,
+  .cv-sheet a,
+  .cv-sheet dt {
+    font-size: 9.5pt !important;
+    line-height: 1.5 !important;
   }
 
-  .cv-sheet--second > section > div:first-of-type {
-    grid-template-columns: 1fr 1fr 1fr !important;
+  .cv-sheet .text-\[15px\] {
+    font-size: 10.4pt !important;
   }
 
-  .cv-sheet--second > section > div:nth-of-type(2) {
-    grid-template-columns: 1fr 1fr 1fr !important;
+  .cv-grid {
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr !important;
+    gap: 9mm !important;
+    padding-top: 5mm !important;
+  }
+
+  .cv-sheet .space-y-8 > * + * {
+    margin-top: 6mm !important;
+  }
+
+  .cv-sheet ol > li {
+    grid-template-columns: 6.2rem 1fr !important;
+    gap: 0.9rem !important;
+  }
+
+  .cv-sheet .space-y-5 > * + * {
+    margin-top: 3.5mm !important;
+  }
+
+  .cv-sheet .pt-6,
+  .cv-sheet .py-6,
+  .cv-sheet .pb-6 {
+    padding-top: 4mm !important;
+    padding-bottom: 4mm !important;
+  }
+
+  .cv-sheet section {
+    break-inside: avoid;
+  }
+
+  .cv-sheet li {
+    break-inside: avoid;
   }
 }
